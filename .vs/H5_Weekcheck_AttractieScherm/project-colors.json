@@ -5,6 +5,11 @@
       "ProjectGuid": "7dd59355-e884-48e8-9357-fb36ef0a03c3",
       "DisplayName": "AttractieScherm",
       "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
     }
   },
   "NextColorIndex": 1

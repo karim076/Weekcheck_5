@@ -23,12 +23,11 @@ namespace H5_Weekcheck_AttractieScherm
         {
             this.InitializeComponent();
         }
-
-
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             //Maakt de hele stackpanel onzichtbaar zodra je FilePicker opent
-            spAttractie.Visibility = Visibility.Collapsed;
+            spAttractie.Visibility = Visibility.Visible;
+            Attractie.Visibility = Visibility.Visible;
 
             //Stelt de file-picker in en opent deze
             var picker = new FileOpenPicker();
@@ -36,7 +35,32 @@ namespace H5_Weekcheck_AttractieScherm
             picker.FileTypeFilter.Add(".attrinfo");
 
             //TODO: voeg hier je eigen code toe, zoals uit H5, paragraaf 7
+            var file = await picker.PickSingleFileAsync();
+            if (file == null)
+            {
+                tbFileInfo.Text = "Geen geldig bestand gekozen";
+            }
+            else
+            {
+                tbFileInfo.Text = file.Path;
+            }
+            using (var fileAcces = await file.OpenReadAsync())
+            {
+                using (var stream = fileAcces.AsStreamForRead())
+                {
+                    using (var reader = new StreamReader(stream))
+                    {
+                        string imageUrl = reader.ReadLine(); 
+                        imgAttractie.Source = new BitmapImage(new Uri(imageUrl, UriKind.Absolute)); 
+                        spAttractie.Visibility = Visibility.Visible;
+                        themaGebied.Text = reader.ReadToEnd();
+                        attractieNaam.Text = reader.ReadToEnd();
+                        beschrijving.Text = reader.ReadToEnd();
+                        minimale_Lengte.Text = reader.ReadToEnd();
 
+                    }
+                }
+            }
         }
     }
 }
