@@ -15,27 +15,33 @@
                 <Image  Width="200" Source="http://developerland.studiokaa.co/img/logo-big-v4.png"/>
                 <TextBlock FontSize="25" Text="Open een .attrinfo" Height="38" Width="257"/>
 
-                <Button x:ConnectionId='10' x:Name="buttoFile"                      >Kies bestand</Button>
+                <Button x:ConnectionId='9' x:Name="buttoFile"                      >Kies bestand</Button>
 
-                <TextBlock><Run x:ConnectionId='11' x:Name="tbFileInfo"></Run></TextBlock>
+                <TextBlock><Run x:ConnectionId='10' x:Name="tbFileInfo"></Run></TextBlock>
             </StackPanel>
         </Border>
-        <StackPanel x:ConnectionId='2' Orientation="Horizontal" Padding="30" Spacing="30" x:Name="spAttractie" Visibility="Visible">
+        <StackPanel x:ConnectionId='2' Orientation="Horizontal" Padding="30" Spacing="30" x:Name="spAttractie" Visibility="Collapsed">
 
-            <Image x:ConnectionId='9'  Name="imgAttractie" Width="600" Stretch="Fill" />
-        </StackPanel>
-        <StackPanel x:ConnectionId='3' Orientation="Horizontal" Padding="30" Spacing="30" x:Name="Attractie" Visibility="Visible">
-            <TextBlock x:ConnectionId='4' FontSize="30" x:Name="themaGebied"/>
+            <Image x:ConnectionId='3'  Name="imgAttractie" Width="600" Stretch="Fill" />
+            <StackPanel Spacing="15">
+                <TextBlock FontSize="19" FontWeight="Light" FontStyle="Italic" >
+                    <Run x:ConnectionId='8' x:Name="attractieNaam"></Run>
+                </TextBlock>
 
-            <TextBlock x:ConnectionId='5' x:Name="attractieNaam"/>
+                <TextBlock x:ConnectionId='4' FontSize="50" FontWeight="ExtraBold" x:Name="themaGebied"/>
 
-            <TextBlock FontSize="19">
-                <Run x:ConnectionId='8' x:Name="beschrijving"></Run>
-            </TextBlock>
-
-            <Border x:ConnectionId='6' x:Name="minimallength" Visibility="Collapsed">
-                <TextBlock ><Run x:ConnectionId='7' x:Name="minimale_Lengte"></Run></TextBlock>
-            </Border>
+                <TextBlock FontSize="19">
+                    <Run x:ConnectionId='7' x:Name="beschrijving"></Run>
+                </TextBlock>
+                <TextBlock><Run FontWeight="Light" FontStyle="Italic">Minimale lengte:</Run><Run x:ConnectionId='6' FontWeight="Bold" FontStyle="Italic" Foreground="Gray" x:Name="minimale_Lengte"></Run></TextBlock>
+                <Border x:ConnectionId='5' Background="LightBlue" BorderBrush="Red" x:Name="Attractie" Visibility="Collapsed">
+                    <TextBlock Width="210" Height="100" TextLineBounds="Full" FontStretch="Normal" >
+                        <Run>Alleen te bezoeken met een</Run> 
+                        <LineBreak/> 
+                        <Run FontSize="50" FontWeight="ExtraBold">FastPass</Run> 
+                    </TextBlock>
+                </Border>
+            </StackPanel>
         </StackPanel>
     </StackPanel>
 </Page>

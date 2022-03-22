@@ -26,9 +26,8 @@ namespace H5_Weekcheck_AttractieScherm
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             //Maakt de hele stackpanel onzichtbaar zodra je FilePicker opent
-            spAttractie.Visibility = Visibility.Visible;
-            Attractie.Visibility = Visibility.Visible;
-
+            spAttractie.Visibility = Visibility.Collapsed;
+             
             //Stelt de file-picker in en opent deze
             var picker = new FileOpenPicker();
             picker.SuggestedStartLocation = PickerLocationId.Downloads;
@@ -53,11 +52,16 @@ namespace H5_Weekcheck_AttractieScherm
                         string imageUrl = reader.ReadLine(); 
                         imgAttractie.Source = new BitmapImage(new Uri(imageUrl, UriKind.Absolute)); 
                         spAttractie.Visibility = Visibility.Visible;
-                        themaGebied.Text = reader.ReadToEnd();
-                        attractieNaam.Text = reader.ReadToEnd();
-                        beschrijving.Text = reader.ReadToEnd();
-                        minimale_Lengte.Text = reader.ReadToEnd();
+                        themaGebied.Text = reader.ReadLine();
+                        attractieNaam.Text = reader.ReadLine();
+                        beschrijving.Text = reader.ReadLine();
+                        minimale_Lengte.Text = reader.ReadLine();
+                        var fastpass = reader.ReadLine();
 
+                        if (fastpass == "Ja")
+                        {
+                            Attractie.Visibility = Visibility.Visible;
+                        }
                     }
                 }
             }
