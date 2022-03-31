@@ -24,14 +24,11 @@ namespace H5_Weekcheck_AttractieScherm
             this.InitializeComponent();
         }
         private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //Maakt de hele stackpanel onzichtbaar zodra je FilePicker opent
-            spAttractie.Visibility = Visibility.Collapsed;
-             
+        {    
             //Stelt de file-picker in en opent deze
             var picker = new FileOpenPicker();
             picker.SuggestedStartLocation = PickerLocationId.Downloads;
-            picker.FileTypeFilter.Add(".attrinfo");
+            picker.FileTypeFilter.Add(".csv");
 
             //TODO: voeg hier je eigen code toe, zoals uit H5, paragraaf 7
             var file = await picker.PickSingleFileAsync();
